@@ -113,7 +113,7 @@ CREATE TABLE Table_Name (
 
 **Output:**
 
-![Output1](output.png)
+![Output1](1.png)
 
 **Question 2**
 ---
