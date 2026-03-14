@@ -47,123 +47,127 @@ SELECT column1, column2 FROM table_name WHERE condition;
 ```
 **Question 1**
 --
--- Paste Question 1 here
+Write a SQL statement to Update the per_unit_price to 25 and total_price accordingly in purchases table where purchase_date is '2022-08-15' and product_id is 12.
+
+
 
 ```sql
--- Paste your SQL code below for Question 1
+UPDATE purchases SET per_unit_price = 25, total_price = 25 * quantity WHERE purchase_date = '2022-08-15' AND product_id =12;
 ```
 
 **Output:**
 
-![Output1](output.png)
+![Output1](3.1.png)
 
 **Question 2**
 ---
--- Paste Question 2 here
-
+Write a SQL statement to Update the grade of all customers in Chennai city as  5. 
 ```sql
--- Paste your SQL code below for Question 2
+UPDATE Customer SET grade = 5 WHERE city = 'Chennai';
 ```
 
 **Output:**
 
-![Output2](output.png)
+![Output2](3.2.png)
 
 **Question 3**
 ---
--- Paste Question 3 here
+Write a SQL statement to change salary of employee to 8000 whose Employee ID is 105, if the existing salary is less than 5000.
 
 ```sql
--- Paste your SQL code below for Question 3
+UPDATE Employees SET salary = 8000 WHERE employee_id = 105 AND salary < 5000;
 ```
 
 **Output:**
 
-![Output3](output.png)
+![Output3](3.3.png)
 
 **Question 4**
 ---
--- Paste Question 4 here
-
+Write a SQL statement to Increase the selling price by 15% in the products table where quantity in stock is less than 50 and supplier ID is 10.
 ```sql
--- Paste your SQL code below for Question 4
+UPDATE Products SET sell_price = sell_price * 1.15 WHERE quantity < 50 AND supplier_id = 10;
 ```
 
 **Output:**
 
-![Output4](output.png)
+![Output4](3.4.png)
 
 **Question 5**
 ---
--- Paste Question 5 here
-
+Write a SQL query to Delete customers with 'GRADE' 3 or 'AGENT_CODE' 'A008' whose 'OUTSTANDING_AMT' is less than 5000
 ```sql
--- Paste your SQL code below for Question 5
+DELETE FROM Customer WHERE (GRADE = 3 OR AGENT_CODE = 'A008') AND OUTSTANDING_AMT < 5000;
 ```
 
 **Output:**
 
-![Output5](output.png)
+![Output5](3.5.png)
 
 **Question 6**
 ---
--- Paste Question 6 here
+Write a SQL query to Delete customers from 'customer' table where 'OPENING_AMT' is between 4000 and 6000.
 
 ```sql
--- Paste your SQL code below for Question 6
+DELETE FROM Customer WHERE OPENING_AMT BETWEEN 4000 AND 6000;
 ```
 
 **Output:**
 
-![Output6](output.png)
+![Output6](3.6.png)
 
 **Question 7**
 ---
--- Paste Question 7 here
-
+Write a SQL query to delete a doctor from Doctors table whos specialization is 'Cardiology'
 ```sql
--- Paste your SQL code below for Question 7
+DELETE FROM Doctors WHERE specialization = 'Cardiology';
 ```
 
 **Output:**
 
-![Output7](output.png)
+![Output7](3.7.png)
 
 **Question 8**
 ---
--- Paste Question 8 here
-
+ Write a query to fetch 3 top salaried records from EmployeePosition table.
 ```sql
--- Paste your SQL code below for Question 8
+SELECT * FROM EmployeePosition ORDER BY Salary DESC LIMIT 3;
 ```
 
 **Output:**
 
-![Output8](output.png)
+![Output8](3.8.png)
 
 **Question 9**
 ---
--- Paste Question 9 here
-
+Write a SQL query to categorize decimal as 'High', 'Medium', or 'Low' based on whether it is greater than 100, between 50 and 100, or less than 50 in the Calculations table
 ```sql
--- Paste your SQL code below for Question 9
+SELECT id, decimal,
+CASE
+WHEN decimal > 100 THEN 'High'
+WHEN decimal >= 50 AND decimal <= 100 THEN 'Medium'
+ELSE 'Low'
+END AS category
+FROM calculations;
 ```
 
 **Output:**
 
-![Output9](output.png)
+![Output9](3.9.png)
 
 **Question 10**
 ---
--- Paste Question 10 here
+write a SQL query to find details of all orders with a purchase amount less than 200 or exclude orders with an order date greater than or equal to '2012-02-10' and a customer ID less than 3009. Return ord_no, purch_amt, ord_date, customer_id and salesman_id.
 
 ```sql
--- Paste your SQL code below for Question 10
+SELECT ord_no, purch_amt, ord_date, customer_id, salesman_id
+FROM orders
+WHERE purch_amt < 200 OR NOT (ord_date >= '2012-02-10' AND customer_id < 3009);
 ```
 
 **Output:**
 
-![Output10](output.png)
+![Output10](3.10.png)
 
 ## RESULT
 Thus, the SQL queries to implement DML commands have been executed successfully.
