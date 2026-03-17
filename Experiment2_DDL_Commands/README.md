@@ -105,123 +105,169 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
--- Paste Question 1 here
+Create a table named Events with the following columns:
 
+EventID as INTEGER
+EventName as TEXT
+EventDate as DATE
 ```sql
--- Paste your SQL code below for Question 1
+CREATE TABLE Events(
+EventID INTEGER,
+EventName TEXT,
+EventDate DATE)
 ```
 
 **Output:**
 
-![Output1](1.png)
+![Output1](1.1.png)
 
 **Question 2**
 ---
--- Paste Question 2 here
-
+Create a new table named item with the following specifications and constraints:
+item_id as TEXT and as primary key.
+item_desc as TEXT.
+rate as INTEGER.
+icom_id as TEXT with a length of 4.
+icom_id is a foreign key referencing com_id in the company table.
+The foreign key should set NULL on updates and deletes.
+item_desc and rate should not accept NULL.
 ```sql
--- Paste your SQL code below for Question 2
+CREATE TABLE item(
+item_id TEXT PRIMARY KEY,
+item_desc TEXT NOT NULL,
+rate INTEGER NOT NULL,
+icom_id TEXT(4),
+FOREIGN KEY (icom_id) REFERENCES company (com_id) on UPDATE SET NULL ON DELETE SET NULL);
 ```
 
 **Output:**
 
-![Output2](output.png)
+![Output2](1.2.png)
 
 **Question 3**
 ---
--- Paste Question 3 here
+Write a SQL Query  to add attribute ISBN as varchar(30) and domain_dept as varchar(30) in the table 'books'
 
 ```sql
--- Paste your SQL code below for Question 3
+ALTER TABLE books 
+ADD COLUMN ISBN varchar(30); 
+ALTER TABLE books
+ADD COLUMN domain_dept varchar(30);
 ```
 
 **Output:**
 
-![Output3](output.png)
+![Output3](1.3.png)
 
 **Question 4**
 ---
--- Paste Question 4 here
+In the Employee table, insert a record where some fields are NULL, another record where all fields are filled without any NULL values, and a third record where some fields are filled, and others are left as NULL.
 
 ```sql
--- Paste your SQL code below for Question 4
+INSERT INTO Employee (EmployeeID, Name, Position, Department, Salary) VALUES (5, 'George Clark', 'Consultant', NOT NULL, NOT NULl);
+INSERT INTO Employee (EmployeeID, Name, Position, Department, Salary) VALUES (7, 'Noah Davis', 'Manager', 'HR', 60000);
+INSERT INTO Employee (EmployeeID, Name, Position, Department, Salary) VALUES (8, 'Ava Miller', 'Consultant', 'IT', NULL);
 ```
 
 **Output:**
 
-![Output4](output.png)
+![Output4](1.4.png)
 
 **Question 5**
 ---
--- Paste Question 5 here
+Write a SQL query to add birth_date attribute as timestamp (datatype) in the table customer 
 
 ```sql
--- Paste your SQL code below for Question 5
+ALTER TABLE customer ADD COLUMN birth_date timestamp;
 ```
 
 **Output:**
 
-![Output5](output.png)
+![Output5](1.5.png)
 
 **Question 6**
 ---
--- Paste Question 6 here
+Create a table named Orders with the following constraints:
+OrderID as INTEGER should be the primary key.
+OrderDate as DATE should be not NULL.
+CustomerID as INTEGER should be a foreign key referencing Customers(CustomerID).
 
 ```sql
--- Paste your SQL code below for Question 6
+CREATE TABLE Orders(
+OrderID INTEGER PRIMARY KEY,
+OrderDate DATE NOT NULL,
+CustomerID INTEGER,
+FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID));
 ```
 
 **Output:**
 
-![Output6](output.png)
+![Output6](1.6.png)
 
 **Question 7**
 ---
--- Paste Question 7 here
+Insert all books from Out_of_print_books into Books
 
+Table attributes are ISBN, Title, Author, Publisher, YearPublished
 ```sql
--- Paste your SQL code below for Question 7
+INSERT INTO Books SELECT * FROM out_of_print_books; 
 ```
 
 **Output:**
 
-![Output7](output.png)
+![Output7](1.7.png)
 
 **Question 8**
 ---
--- Paste Question 8 here
+Insert a book with ISBN 978-1234567890, Title Data Science Essentials, Author Jane Doe, Publisher TechBooks, and Year 2024 into the Books table.
 
 ```sql
--- Paste your SQL code below for Question 8
+INSERT INTO Books (ISBN, Title, Author, Publisher, Year) VALUES('978-1234567890', 'Data Science Essentials', 'Jane Doe', 'TechBooks', 2024);
 ```
 
 **Output:**
 
-![Output8](output.png)
+![Output8](1.8.png)
 
 **Question 9**
 ---
--- Paste Question 9 here
-
+Create a table named Products with the following constraints:
+ProductID as INTEGER should be the primary key.
+ProductName as TEXT should be unique and not NULL.
+Price as REAL should be greater than 0.
+StockQuantity as INTEGER should be non-negative.
 ```sql
--- Paste your SQL code below for Question 9
+CREATE TABLE Products(
+ProductID INTEGER PRIMARY KEY,
+ProductName TEXT UNIQUE NOT NULL,
+Price REAL CHECK (Price > 0),
+StockQuantity INTEGER CHECK (StockQuantity >= 0));
 ```
 
 **Output:**
 
-![Output9](output.png)
+![Output9](1.9.png)
 
 **Question 10**
 ---
--- Paste Question 10 here
+Create a table named Products with the following constraints:
+
+ProductID should be the primary key.
+ProductName should be NOT NULL.
+Price is of real datatype and should be greater than 0.
+Stock is of integer datatype and should be greater than or equal to 0.
 
 ```sql
--- Paste your SQL code below for Question 10
+CREATE TABLE Products(
+ProductID INTEGER PRIMARY KEY,
+ProductName NOT NULL,
+Price REAL CHECK(Price > 0),
+Stock INTEGER CHECK (Stock >= 0));
 ```
 
 **Output:**
 
-![Output10](output.png)
+![Output10](1.10.png)
 
 
 ## RESULT
