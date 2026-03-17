@@ -38,123 +38,140 @@ HAVING condition;
 
 **Question 1**
 --
--- Paste Question 1 here
-
+How many patients have expired insurance coverage for each insurance company?
 ```sql
--- Paste your SQL code below for Question 1
+SELECT InsuranceCompany, COUNT(DISTINCT PatientID) AS TotalExpiredPatients
+FROM Insurance
+WHERE ValidityPeriod < CURRENT_DATE
+GROUP BY InsuranceCompany;
 ```
 
 **Output:**
 
-![Output1](output.png)
+![Output1](4.1.png)
 
 **Question 2**
 ---
--- Paste Question 2 here
-
+What is the total number of appointments scheduled for each day?
 ```sql
--- Paste your SQL code below for Question 2
+SELECT DATE(AppointmentDateTime) AS AppointmentDate, COUNT(*) AS TotalAppointments
+FROM Appointments
+GROUP BY DATE(AppointmentDateTime);
 ```
 
 **Output:**
 
-![Output2](output.png)
+![Output2](4.2.png)
 
 **Question 3**
 ---
--- Paste Question 3 here
+How many male and female doctors are there in each medical specialty?
 
 ```sql
--- Paste your SQL code below for Question 3
+SELECT Specialty, Gender, COUNT(*) AS TotalDoctors 
+FROM Doctors
+GROUP BY Specialty, Gender
+ORDER BY Specialty;
 ```
 
 **Output:**
 
-![Output3](output.png)
+![Output3](4.3.png)
 
 **Question 4**
 ---
--- Paste Question 4 here
-
+Write a SQL query to Calculate the average email length (in characters) for people who lives in Mumbai city
 ```sql
--- Paste your SQL code below for Question 4
+SELECT AVG(LENGTH(email)) AS avg_email_length_below_30
+FROM customer
+WHERE city = 'Mumbai';
 ```
 
 **Output:**
 
-![Output4](output.png)
+![Output4](4.4.png)
 
 **Question 5**
 ---
--- Paste Question 5 here
-
+Write a SQL query to calculate total available amount of fruits that has a price greater than 0.5 . Return total Count. 
 ```sql
--- Paste your SQL code below for Question 5
+SELECT SUM(inventory) AS total_available_amount
+FROM fruits
+WHERE price > 0.5;
 ```
 
 **Output:**
 
-![Output5](output.png)
+![Output5](4.5.png)
 
 **Question 6**
 ---
--- Paste Question 6 here
-
+Write a SQL query to find the maximum purchase amount.
 ```sql
--- Paste your SQL code below for Question 6
+SELECT max(purch_amt) AS MAXIMUM
+FROM orders;
 ```
 
 **Output:**
 
-![Output6](output.png)
+![Output6](4.6.png)
 
 **Question 7**
 ---
--- Paste Question 7 here
-
+Write a SQL query to return the total number of rows in the 'customer' table where the city is Noida.
 ```sql
--- Paste your SQL code below for Question 7
+SELECT COUNT(*) AS COUNT 
+FROM customer
+WHERE city='Noida';
 ```
 
 **Output:**
 
-![Output7](output.png)
+![Output7](4.7.png)
 
 **Question 8**
 ---
--- Paste Question 8 here
+Write the SQL query that achieves the selection of category and calculates the sum of the product of price and category ID as Revenue for each category from the "products" table, and includes only those products where the total revenue is greater than 25.
 
 ```sql
--- Paste your SQL code below for Question 8
+SELECT category_id, SUM(price * category_id) AS Revenue
+FROM products
+GROUP BY category_id
+HAVING SUM(price * category_id) > 25;
 ```
 
 **Output:**
 
-![Output8](output.png)
+![Output8](4.8.png)
 
 **Question 9**
 ---
--- Paste Question 9 here
-
+Write the SQL query that achieves the grouping of data by age intervals using the expression (age/5)5, calculates the average age for each group, and excludes groups where the average age is not less than 24.
 ```sql
--- Paste your SQL code below for Question 9
+SELECT (age/5)*5 AS age_group, AVG(age) 
+FROM customer1
+GROUP BY age_group
+HAVING AVG(age) < 24;
 ```
 
 **Output:**
 
-![Output9](output.png)
+![Output9](4.9.png)
 
 **Question 10**
 ---
--- Paste Question 10 here
+Write the SQL query that accomplishes the grouping of data by age, calculates the maximum income for each age group, and includes only those age groups where the maximum income is greater than 2,000,000.
 
 ```sql
--- Paste your SQL code below for Question 10
+SELECT age, MAX(income)
+FROM employee
+GROUP BY age
+HAVING MAX(income) > 2000000;
 ```
 
 **Output:**
 
-![Output10](output.png)
+![Output10](4.10.png)
 
 
 ## RESULT
